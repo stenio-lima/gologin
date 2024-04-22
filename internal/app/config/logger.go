@@ -27,6 +27,11 @@ func NewLogger(p string) *Logger {
 	}
 }
 
+func GetLogger(p string) *Logger {
+	logger = NewLogger(p)
+	return logger
+}
+
 // Create Non-Formatted Logs
 func (l *Logger) Debug(v ...interface{}) {
 	l.debug.Println(v...)

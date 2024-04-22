@@ -1,23 +1,18 @@
 package main
 
 import (
-	"github.com/stenio-lima/gologin/internal/app/database/config"
+	config2 "github.com/stenio-lima/gologin/internal/app/config"
 	"github.com/stenio-lima/gologin/internal/app/http/router"
 )
 
 var (
-	logger *config.Logger
+	logger *config2.Logger
 )
 
 func main() {
-	logger = config.GetLogger("main")
+	logger = config2.GetLogger("main")
 	// Initialize Configs
-	err := config.InitDB()
-	if err != nil {
-		logger.Errorf("config database init failed: %v", err)
-		return
-	}
-
+	config2.InitializeConfigs()
 	// Initialize Router
 	router.Init()
 }
