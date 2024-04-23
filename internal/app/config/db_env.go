@@ -2,14 +2,8 @@ package config
 
 import (
 	"errors"
+	"github.com/stenio-lima/gologin/internal/app/helpers"
 	"os"
-)
-
-const (
-	DB_USER     = "DB_USER"
-	DB_PASSWORD = "DB_PASSWORD"
-	DB_PORT     = "DB_PORT"
-	DB_NAME     = "DB_NAME"
 )
 
 type DbConfig struct {
@@ -20,10 +14,10 @@ type DbConfig struct {
 }
 
 func (e *DbConfig) GetEnvDatabase() error {
-	e.DbUser = os.Getenv(DB_USER)
-	e.DbPassword = os.Getenv(DB_PASSWORD)
-	e.DbPort = os.Getenv(DB_PORT)
-	e.DbName = os.Getenv(DB_NAME)
+	e.DbUser = os.Getenv(helpers.DbUser)
+	e.DbPassword = os.Getenv(helpers.DbPassword)
+	e.DbPort = os.Getenv(helpers.DbPort)
+	e.DbName = os.Getenv(helpers.DbName)
 
 	switch {
 	case e.DbUser == "":

@@ -18,4 +18,5 @@ func InitializeConfigs() {
 		logger.Error("Error when trying get environment data from database. Reason:", err.Error())
 	}
 
+	PortServer = os.Getenv(helpers.PortServer)
 }

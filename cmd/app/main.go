@@ -1,18 +1,16 @@
 package main
 
 import (
-	config2 "github.com/stenio-lima/gologin/internal/app/config"
+	"fmt"
+	"github.com/stenio-lima/gologin/internal/app/config"
 	"github.com/stenio-lima/gologin/internal/app/http/router"
-)
-
-var (
-	logger *config2.Logger
+	"log"
 )
 
 func main() {
-	logger = config2.GetLogger("main")
-	// Initialize Configs
-	config2.InitializeConfigs()
-	// Initialize Router
-	router.Init()
+	config.InitializeConfigs() // Initialize Configs
+
+	server := router.InitRoutes() // Initialize Router
+
+	log.Fatal(server.Listen(fmt.Sprint(config.PortServer))) // Start server
 }
