@@ -1,12 +1,15 @@
 package config
 
 import (
+	"github.com/stenio-lima/gologin/internal/app/helpers"
 	"gorm.io/gorm"
+	"os"
 )
 
 var (
-	db     *gorm.DB
-	logger *Logger
+	db         *gorm.DB
+	logger     *Logger
+	PortServer string
 )
 
 func InitializeConfigs() {
