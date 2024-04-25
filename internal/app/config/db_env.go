@@ -2,6 +2,7 @@ package config
 
 import (
 	"errors"
+	"github.com/joho/godotenv"
 	"github.com/stenio-lima/gologin/internal/app/helpers"
 	"os"
 )
@@ -14,6 +15,11 @@ type DbConfig struct {
 }
 
 func (e *DbConfig) GetEnvDatabase() error {
+	err := godotenv.Load(".env")
+	if err != nil {
+		return err
+	}
+
 	e.DbUser = os.Getenv(helpers.DbUser)
 	e.DbPassword = os.Getenv(helpers.DbPassword)
 	e.DbPort = os.Getenv(helpers.DbPort)

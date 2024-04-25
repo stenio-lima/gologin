@@ -23,3 +23,7 @@ func InitializeConfigs() {
 
 	PortServer = os.Getenv(helpers.PortServer)
 }
+
+func GetPostgres() *gorm.DB {
+	return db
+}
