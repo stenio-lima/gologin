@@ -4,8 +4,9 @@ import (
 	"gorm.io/gorm"
 )
 
-type Login struct {
+type Account struct {
 	gorm.Model
-	Login    string // E-mail também seria válido? Consultar com o mestre.
+	ID       uint `gorm:"primaryKey;autoIncrement:false"`
+	Email    string
 	Password string
 }
