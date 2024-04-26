@@ -12,6 +12,7 @@ const (
 	MethodTrace   = "TRACE"
 	MethodUse     = "USE"
 
+	DbHost     string = "DB_HOST"
 	DbUser     string = "DB_USER"
 	DbPassword string = "DB_PASSWORD"
 	DbPort     string = "DB_PORT"

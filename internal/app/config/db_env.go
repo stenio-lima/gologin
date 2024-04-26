@@ -8,6 +8,7 @@ import (
 )
 
 type DbConfig struct {
+	DbHost     string
 	DbUser     string
 	DbPassword string
 	DbPort     string
@@ -20,6 +21,7 @@ func (e *DbConfig) GetEnvDatabase() error {
 		return err
 	}
 
+	e.DbHost = os.Getenv(helpers.DbHost)
 	e.DbUser = os.Getenv(helpers.DbUser)
 	e.DbPassword = os.Getenv(helpers.DbPassword)
 	e.DbPort = os.Getenv(helpers.DbPort)
